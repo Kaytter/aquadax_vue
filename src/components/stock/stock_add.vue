@@ -43,9 +43,9 @@
                     type: [
                         {required: true, message: 'Please input a type', trigger: 'blur'},
                     ],
-                    date: [
-                            { type: 'date', required: true, message: 'Please pick a date', trigger: 'change' }
-                        ],
+                    // date: [
+                    //         { type: 'date', required: true, message: 'Please pick a date', trigger: 'change' }
+                    //     ],
                     quantity: [
                         {required: true, message: 'Please input quantity', trigger: 'blur'},
                     ]
@@ -63,7 +63,6 @@
             onSubmit(form){
                 this.$refs[form].validate((valid) => {
                     if (valid) {
-
                         let url = this.url + '/stocks';
                         this.axios.post(url, this.addForm, {headers: {'Content-Type': 'application/json',
                                 'Authorization': 'Bearer '+this.token

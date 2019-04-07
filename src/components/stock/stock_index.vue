@@ -9,33 +9,44 @@
 
         <div class=" table-box card-base card-shadow--medium">
             <!--Displays the stocks table-->
-
-            <el-table :data="tableData" height="475" width="100%">
+            <el-table
+                    :data="tableData.filter(data => !search || data.type.toLowerCase().includes(search.toLowerCase()))"
+                    style="width: 100%">
 
                 <el-table-column
                         prop="stockID"
                         sortable
                         label="ID"
-                        width="60"
                 ></el-table-column>
 
                 <el-table-column
                         prop="quantity"
                         label="Quantity"
-                        width="150"></el-table-column>
+                        ></el-table-column>
                 <el-table-column
                         prop="type"
                         label="Type"
-                        width="150"></el-table-column>
+                        ></el-table-column>
                 <el-table-column
                         prop="date"
                         label="Date"
-                        width="150"></el-table-column>
-                <el-table-column label="Operations" width="150">
-
+                       ></el-table-column>
+                <el-table-column
+                        align="right">
+                    <template slot="header" slot-scope="scope">
+                        <el-input
+                                v-model="search"
+                                size="mini"
+                                placeholder="Type to search"/>
+                    </template>
                     <template slot-scope="scope">
-                        <el-button size="mini" slot="reference" @click="handleEdit(scope.$index, scope.row)">Edit</el-button>
-                        <el-button size="mini" type="danger" @click="handleDelete(scope.$index, scope.row)">Delete</el-button>
+                        <el-button
+                                size="mini"
+                                @click="handleEdit(scope.$index, scope.row)">Edit</el-button>
+                        <el-button
+                                size="mini"
+                                type="danger"
+                                @click="handleDelete(scope.$index, scope.row)">Delete</el-button>
                     </template>
                 </el-table-column>
 
@@ -45,6 +56,8 @@
 </template>
 
 <script>
+    import XLSX from 'xlsx';
+
     export default {
         name: "stock_index",
         data(){
@@ -53,6 +66,7 @@
                 token:'',
                 form:[],
                 url: '',
+                search: '',
                 excelForm:[]
             }
         },
@@ -69,12 +83,12 @@
                 });
             },
             exportXlsx(){
-                var currencyIdWs = XLSX.utils.json_to_sheet(this.excelForm);
+                var stockIdWs = XLSX.utils.json_to_sheet(this.excelForm);
                 // Workbook
-                var currencyWb = XLSX.utils.book_new();
+                var stockWb = XLSX.utils.book_new();
                 //Add worksheet to workbook
-                XLSX.utils.book_append_sheet(currencyWb,currencyIdWs);
-                XLSX.writeFile(currencyWb, 'Stocks.xlsx');
+                XLSX.utils.book_append_sheet(stockWb,stockIdWs);
+                XLSX.writeFile(stockWb, 'Stocks.xlsx');
 
             },
 
@@ -91,7 +105,7 @@
                     this.delete();
                     this.tableData.splice(index,1);
                     this.message=response.data.message;
-                    this.getCurrency();
+                    this.getStocks();
                 }).catch(err =>{
                     this.$router.push('login');
                 });
@@ -124,6 +138,7 @@
 
 <style scoped>
     .table-box{
+
     }
     .card-base{
     }

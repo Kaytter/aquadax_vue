@@ -1,25 +1,25 @@
 <template>
     <div class="page-table scrollable">
 
-        <el-form ref="addForm" :rules="rules" :model="addForm" label-width="120px">
-            <h2 class="animated fadeInDown" >Add new</h2>
+        <el-form ref="form" :rules="rules" :model="form" label-width="120px">
+            <h2 class="animated fadeInDown" >Edit form</h2>
 
             <el-form-item label="Type" prop="type" >
-                <el-input  v-model="addForm.type"></el-input>
+                <el-input  v-model="form.type"></el-input>
             </el-form-item>
 
             <el-form-item label="Quantity" prop="quantity">
-                <el-input  type="number" v-model="addForm.quantity"></el-input>
+                <el-input  type="number" v-model="form.quantity"></el-input>
             </el-form-item>
 
             <el-form-item label="Date" prop="date">
                 <el-col :span="11">
-                    <el-date-picker value-format="yyyy-MM-dd" type="date" placeholder="Pick a date" v-model="addForm.date" style="width: 70%;"></el-date-picker>
+                    <el-date-picker value-format="yyyy-MM-dd" type="date" placeholder="Pick a date" v-model="form.date" style="width: 70%;"></el-date-picker>
                 </el-col>
             </el-form-item>
 
             <el-form-item>
-                <el-button type="primary" @click="onSubmit('addForm')">SAVE</el-button>
+                <el-button type="primary" @click="onSubmit('form')">SAVE</el-button>
                 <el-button  @click="cancelClicked">CLOSE</el-button>
             </el-form-item>
         </el-form>
@@ -33,7 +33,7 @@
         name: "stock_add",
         data(){
             return  {
-                addForm: {},
+                form: {},
                 message: '',
                 token: '',
                 url: '',
@@ -102,6 +102,7 @@
                         'Authorization': 'Bearer '+ this.token
                     }}).then((response) => {
                     this.form=response.data.data;
+                    console.log(this.form)
 
                 });
 

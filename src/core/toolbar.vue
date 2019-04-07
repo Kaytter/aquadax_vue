@@ -24,7 +24,6 @@
 				<i class="mdi mdi-fullscreen-exit" v-if="fullscreen"></i>
 			</button>
 			<el-popover ref="popover" placement="bottom" :width="popoverWidth" trigger="click">
-				<notification-box></notification-box>
 			</el-popover>
 			<el-badge :is-dot="true" class="notification-icon-badge">
 				<el-button v-popover:popover icon="mdi mdi-bell" class="notification-icon"></el-button>

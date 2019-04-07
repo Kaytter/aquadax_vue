@@ -59,6 +59,7 @@ import App from './App.vue'
 import router from './router/' 
 import store from './store' 
 import i18n_messages from './i18n.json'
+import XLSX from 'xlsx';
 import axios from 'axios';
 import VueAxios from 'vue-axios';
 
@@ -67,6 +68,7 @@ Vue.config.productionTip = false
 
 Vue.component('StatusIndicator', StatusIndicator)
 Vue.use(VueAxios, axios);
+Vue.use(XLSX);
 Vue.use(VueChartkick, {adapter: Chart})
 Vue.use(Trend)
 Vue.use(Bars)

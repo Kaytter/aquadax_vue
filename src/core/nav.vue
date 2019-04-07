@@ -16,7 +16,7 @@
 
 		<el-submenu index="stocks" popper-class="main-navigation-submenu">
 			<template slot="title">
-				<i class="mdi mdi-account-multiple"></i><span>Stocks</span>
+				<i class="mdi mdi-chart-bar-stacked"></i><span>Stocks</span>
 			</template>
 
 			<el-menu-item index="/stocks">
