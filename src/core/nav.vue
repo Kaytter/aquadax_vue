@@ -31,75 +31,79 @@
 
 		<el-submenu index="employees" popper-class="main-navigation-submenu">
 			<template slot="title">
-				<i class="mdi mdi-account-multiple"></i><span>Stocks</span>
+				<i class="mdi mdi-account-multiple"></i><span>Employees</span>
 			</template>
 
-			<el-menu-item index="/stocks">
-				<i class="mdi mdi-account"></i><span slot="title">Stocks</span>
+			<el-menu-item index="/employees/list">
+				<i class="mdi mdi-account"></i><span slot="title">Employee List</span>
 			</el-menu-item>
 
-			<el-menu-item index="/stocks/add">
-				<i class="mdi mdi-account-plus"></i><span slot="title">Add stock</span>
+			<el-menu-item index="/employee/add">
+				<i class="mdi mdi-account-plus"></i><span slot="title">Add employee</span>
 			</el-menu-item>
 
 		</el-submenu>
 
 		<el-submenu index="production" popper-class="main-navigation-submenu">
 			<template slot="title">
-				<i class="mdi mdi-account-multiple"></i><span>Stocks</span>
+				<i class="mdi mdi-houzz-box"></i><span>Production</span>
 			</template>
 
 			<el-menu-item index="/stocks">
-				<i class="mdi mdi-account"></i><span slot="title">Stocks</span>
+				<i class="mdi mdi-mixer"></i><span slot="title">Shift</span>
 			</el-menu-item>
 
-			<el-menu-item index="/stocks/add">
+			<!-- <el-menu-item index="/stocks/add">
 				<i class="mdi mdi-account-plus"></i><span slot="title">Add stock</span>
-			</el-menu-item>
+			</el-menu-item> -->
+
 
 		</el-submenu>
 
 		<el-submenu index="Orders" popper-class="main-navigation-submenu">
 			<template slot="title">
-				<i class="mdi mdi-account-multiple"></i><span>Stocks</span>
+				<i class="mdi mdi-cart"></i><span>Orders</span>
 			</template>
 
 			<el-menu-item index="/stocks">
-				<i class="mdi mdi-account"></i><span slot="title">Stocks</span>
+				<i class="mdi mdi-cart-arrow-down"></i><span slot="title">View Orders</span>
 			</el-menu-item>
 
 			<el-menu-item index="/stocks/add">
-				<i class="mdi mdi-account-plus"></i><span slot="title">Add stock</span>
+				<i class="mdi mdi-cart-plus"></i><span slot="title">Make order</span>
 			</el-menu-item>
 
 		</el-submenu>
 
 		<el-submenu index="vehicles" popper-class="main-navigation-submenu">
 			<template slot="title">
-				<i class="mdi mdi-account-multiple"></i><span>Stocks</span>
+				<i class="mdi mdi-car"></i><span>Vehicles</span>
 			</template>
 
 			<el-menu-item index="/stocks">
-				<i class="mdi mdi-account"></i><span slot="title">Stocks</span>
+				<i class="mdi mdi-car-multiple"></i><span slot="title">View vehicles</span>
 			</el-menu-item>
 
 			<el-menu-item index="/stocks/add">
-				<i class="mdi mdi-account-plus"></i><span slot="title">Add stock</span>
+				<i class="mdi mdi-car-electric"></i><span slot="title">Add vehicle</span>
 			</el-menu-item>
 
 		</el-submenu>
 
 		<el-submenu index="Reports" popper-class="main-navigation-submenu">
 			<template slot="title">
-				<i class="mdi mdi-account-multiple"></i><span>Stocks</span>
+				<i class="mdi mdi-chart-bar"></i><span>Reports</span>
 			</template>
 
 			<el-menu-item index="/stocks">
-				<i class="mdi mdi-account"></i><span slot="title">Stocks</span>
+				<i class="mdi mdi-chart-line"></i><span slot="title">Daily report</span>
 			</el-menu-item>
 
 			<el-menu-item index="/stocks/add">
-				<i class="mdi mdi-account-plus"></i><span slot="title">Add stock</span>
+				<i class="mdi mdi-chart-gantt"></i><span slot="title">Weekly Report</span>
+			</el-menu-item>
+			<el-menu-item index="/stocks/add">
+				<i class="mdi mdi-chart-areaspline"></i><span slot="title">Custom Report</span>
 			</el-menu-item>
 
 		</el-submenu>
